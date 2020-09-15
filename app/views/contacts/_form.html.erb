@@ -1,0 +1,46 @@
+<%= form_with model: @contacts, local: true do |form| %>
+
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@contact.errors.count, "error") %> prevented this contact from being saved:
+      </h2>
+      <ul>
+        <% @contact.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :salutation %><br>
+    <%= select_tag(:salutation, options_for_select([['Mr', 1], ['Mrs', 2], ['Ms', 3], ['Mx', 4]])) %><br>
+    <%= form.label :first_name, "First Name" %><br>
+    <%= form.text_field :first_name %><br>
+    <%= form.label :middle_name, "Middle Name" %><br>
+    <%= form.text_field :middle_name %><br>
+    <%= form.label :last_name, "Last Name" %><br>
+    <%= form.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= form.label :ssn, "Social Security Number" %><br>
+    <%= form.text_field :ssn %>
+  </p>
+
+  <p>
+    <%= form.label :dob, "Date of Birth" %><br>
+    <%= form.date_select :dob, {order: [:day, :month, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100} %>
+  </p>
+  
+  <p>
+    <%= form.label :comment, "Comment" %><br>
+    <%= form.text_area :comment %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>

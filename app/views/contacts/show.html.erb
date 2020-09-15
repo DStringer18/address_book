@@ -1,0 +1,71 @@
+<p>
+  <strong>Contact:</strong>
+  <p>
+  <%= @contact.salutation %>
+  <%= @contact.first_name %>
+  <%= @contact.middle_name %>
+  <%= @contact.last_name %>
+  </p>
+  <p>
+  <strong>SSN:</strong>
+  <%= @contact.ssn %><br>
+  <strong>Date of Birth:</strong>
+  <%= @contact.dob.to_time.strftime('%m/%d/%Y') %><br>
+  <strong>Comment:</strong>
+  <%= @contact.comment %>
+  </p>
+</p>
+
+<h2>Addresses</h2>
+<% @contact.addresses.each do |address| %>
+  <p>
+    <strong>Street</strong>
+    <%= address.street %>
+  </p>
+  <p>
+    <strong>Town</strong>
+    <%= address.town %>
+  </p>
+  <p>
+    <strong>ZIP</strong>
+    <%= address.zip %>
+  </p>
+  <p>
+    <strong>State</strong>
+    <%= address.state %>
+  </p>
+  <p>
+    <strong>Country</strong>
+    <%= address.country_code %>
+  </p>
+<% end %>
+
+<h2>Add an address:</h2>
+<%= form_with(model: [ @contact, @contact.addresses.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :street %><br>Street
+    <%= form.text_field :street %>
+  </p>
+  <p>
+    <%= form.label :town %><br>Town
+    <%= form.text_field :town %>
+  </p>
+  <p>
+    <%= form.label :zip %><br>ZIP Code
+    <%= form.text_field :zip %>
+  </p>
+  <p>
+    <%= form.label :state %><br>State
+    <%= form.text_field :state %>
+  </p>
+  <p>
+    <%= form.label :country_code %><br>Country
+    <%= form.country_select :country_code %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_contact_path(contact) %>
+<%= link_to 'Back', contacts_path %>
