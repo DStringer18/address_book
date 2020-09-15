@@ -1,0 +1,25 @@
+<%= form_with(model: [ @contact, @contact.addresses.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :street %><br>
+    <%= form.text_field :street %>
+  </p>
+  <p>
+    <%= form.label :town %><br>
+    <%= form.text_field :town %>
+  </p>
+  <p>
+    <%= form.label :zip %><br>
+    <%= form.text_field :zip %>
+  </p>
+  <p>
+    <%= form.label :state %><br>
+    <%= form.text_field :state %>
+  </p>
+  <p>
+    <%= form.label :country %><br>
+    <%= form.text_field :country %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

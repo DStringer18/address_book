@@ -1,0 +1,25 @@
+<% @contact.addresses.each do |address| %>
+  <p>
+    <strong>Street</strong>
+    <%= address.street %>
+  </p>
+  <p>
+    <strong>Town</strong>
+    <%= address.town %>
+  </p>
+  <p>
+    <strong>ZIP</strong>
+    <%= address.zip %>
+  </p>
+  <p>
+    <strong>State</strong>
+    <%= address.state %>
+  </p>
+  <p>
+    <strong>Country</strong>
+    <%= address.country %>
+  </p>
+  <%= link_to 'Destroy Address', [address.contact, address],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+<% end %>

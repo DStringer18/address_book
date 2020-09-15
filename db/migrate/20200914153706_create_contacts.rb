@@ -5,7 +5,7 @@ class CreateContacts < ActiveRecord::Migration[6.0]
       t.string :first_name
       t.string :middle_name
       t.string :last_name
-      t.string :ssn
+      t.string :ssn, precision: 8
       t.string :dob
       t.text :comment
 
