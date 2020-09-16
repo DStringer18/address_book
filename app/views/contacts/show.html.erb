@@ -11,7 +11,7 @@
   <strong>SSN:</strong>
   <%= @contact.ssn %><br>
   <strong>Date of Birth:</strong>
-  <%= @contact.dob.to_time.strftime('%m/%d/%Y') %><br>
+  <%= @contact.dob %><br>
   <strong>Comment:</strong>
   <%= @contact.comment %>
   </p>
@@ -21,7 +21,7 @@
 <%= render @contact.addresses %>
 
 <h2>Add an address:</h2>
-<%= render 'addresses/form'%>
+<%= render 'addresses/form' %>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %>
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>

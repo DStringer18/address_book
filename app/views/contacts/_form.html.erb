@@ -1,4 +1,4 @@
-<%= form_with model: @contacts, local: true do |form| %>
+<%= form_with scope: :contact, url: contacts_path, local: true do |form| %>
 
   <% if @contact.errors.any? %>
     <div id="error_explanation">
@@ -31,7 +31,7 @@
 
   <p>
     <%= form.label :dob, "Date of Birth" %><br>
-    <%= form.date_select :dob, {order: [:day, :month, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100} %>
+    <%= form.date_field :dob %>
   </p>
   
   <p>
