@@ -1,4 +1,4 @@
-<%= form_with scope: :contact, url: contacts_path, local: true do |form| %>
+<%= form_with scope: :contact, url: contacts_path do |form| %>
 
   <% if @contact.errors.any? %>
     <div id="error_explanation">
@@ -16,11 +16,11 @@
   <p>
     <%= form.label :salutation %><br>
     <%= select_tag(:salutation, options_for_select([['Mr', 1], ['Mrs', 2], ['Ms', 3], ['Mx', 4]])) %><br>
-    <%= form.label :first_name, "First Name" %><br>
+    <%= form.label :first_name, "First Name*" %><br>
     <%= form.text_field :first_name %><br>
     <%= form.label :middle_name, "Middle Name" %><br>
     <%= form.text_field :middle_name %><br>
-    <%= form.label :last_name, "Last Name" %><br>
+    <%= form.label :last_name, "Last Name*" %><br>
     <%= form.text_field :last_name %>
   </p>
 
@@ -38,6 +38,8 @@
     <%= form.label :comment, "Comment" %><br>
     <%= form.text_area :comment %>
   </p>
+
+  <p>* = required field</p>
 
   <p>
     <%= form.submit %>
