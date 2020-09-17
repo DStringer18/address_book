@@ -1,0 +1,27 @@
+
+<p>
+  <strong>Contact:</strong>
+  <p>
+  <%= @contact.salutation %>
+  <%= @contact.first_name %>
+  <%= @contact.middle_name %>
+  <%= @contact.last_name %>
+  </p>
+  <p>
+  <strong>SSN:</strong>
+  <%= @contact.ssn %><br>
+  <strong>Date of Birth:</strong>
+  <%= @contact.dob %><br>
+  <strong>Comment:</strong>
+  <%= @contact.comment %>
+  </p>
+</p>
+
+<h2>Addresses</h2>
+<%= render @contact.addresses %>
+
+<h2>Add an address:</h2>
+<%= render 'addresses/form' %>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
