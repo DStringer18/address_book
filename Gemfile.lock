@@ -201,6 +201,10 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+<<<<<<< HEAD
+=======
+  country_codes
+>>>>>>> 9024fa2563eda7cbade1e27d3a889ce82333f3b8
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
