@@ -20,7 +20,7 @@ class AddressesController < ApplicationController
     @address = @contact.addresses.create(address_params)
 
     if @address.update(address_params)
-      redirect_to @address
+      redirect_to @address, notice: "Saved!"
     else
       render 'edit'
     end

@@ -1,4 +1,3 @@
-
 <p>
   <strong>Contact:</strong>
   <p>
@@ -17,11 +16,16 @@
   </p>
 </p>
 
-<h2>Addresses</h2>
-<%= render @contact.addresses %>
+<% if @contact.addresses.any? %>
+  <hr>
+  <h2>Addresses</h2>
+  <%= render @contact.addresses %>
+<% end %>
+
+<hr>
 
 <h2>Add an address:</h2>
-<%= render 'addresses/form' %>
+<%= render 'addresses/form', address: @contact.addresses.build %>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>

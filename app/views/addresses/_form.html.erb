@@ -1,4 +1,4 @@
-<%= form_with(model: [ @contact, @contact.addresses.build ] ) do |form| %>
+<%= form_with (model: [ @contact, @contact.addresses.build ] ) do |form| %>
   <p>
     <%= form.label :street %><br>
     <%= form.text_field :street %>
