@@ -1,9 +1,17 @@
 class AddressesController < ApplicationController
-
+  def index
+    @addresses = Address.all
+  end
+  
   def show
     @address = Address.find(params[:id])
   end
 
+  def new
+    @contact = Contact.find(params[:contact_id])
+    @address = Address.new
+  end
+  
   def edit
     @contact = Contact.find(params[:contact_id])
     @address = @contact.addresses.find(params[:id])

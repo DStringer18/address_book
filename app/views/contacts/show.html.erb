@@ -17,15 +17,28 @@
 </p>
 
 <% if @contact.addresses.any? %>
-  <hr>
-  <h2>Addresses</h2>
-  <%= render @contact.addresses %>
+<h2>Addresses</h2>
+  <% @contact.addresses.each do |address| %>
+  <% debug address.id %>
+  <table>
+  <tr>
+      <td><%= address.id %></td>
+      <td><%= address.street %></td>
+      <td><%= address.town %></td>
+      <td><%= address.zip %></td>
+      <td><%= address.state %></td>
+      <td><%= address.country %></td>
+      <td><%= link_to 'Edit Address', edit_contact_address_path(address.contact, address) %></td>
+      <td><%= link_to 'Destroy Address', [address.contact, address],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
 <% end %>
 
-<hr>
-
+<hr> 
 <h2>Add an address:</h2>
-<%= render 'addresses/form', address: @contact.addresses.build %>
+<%= render partial: 'addresses/form', locals: {contact: @contact, address: @address} %>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
