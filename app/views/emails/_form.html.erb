@@ -1,0 +1,9 @@
+<%= form_with model: [ contact, email ] do |form| %>
+  <p>
+    <%= form.label :email_address %><br>
+    <%= form.text_field :email_address %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

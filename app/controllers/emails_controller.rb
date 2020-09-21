@@ -1,25 +1,25 @@
-class PhoneNumbersController < ApplicationController  
+class EmailsController < ApplicationController
   def new
     @contact = Contact.find(params[:contact_id])
-    @phone_number = PhoneNumber.new
+    @email = Email.new
   end
   
   def edit
     @contact = Contact.find(params[:contact_id])
-    @phone_number = @contact.phone_numbers.find(params[:id])
+    @email = @contact.emails.find(params[:id])
   end
 
   def create
     @contact = Contact.find(params[:contact_id])
-    @phone_number = @contact.phone_numbers.create(phone_number_params)
+    @email = @contact.emails.create(email_params)
     redirect_to contact_path(@contact)
   end
 
   def update
     @contact = Contact.find(params[:contact_id])
-    @phone_number = @contact.phone_numbers.find(params[:id])
+    @email = @contact.emails.find(params[:id])
 
-    if @phone_number.update(phone_number_params)
+    if @email.update(email_params)
       redirect_to @contact, notice: "Saved!"
     else
       render 'edit'
@@ -28,13 +28,13 @@ class PhoneNumbersController < ApplicationController
 
   def destroy
     @contact = Contact.find(params[:contact_id])
-    @phone_number = @contact.phone_numbers.find(params[:id])
-    @phone_number.destroy
+    @email = @contact.emails.find(params[:id])
+    @email.destroy
     redirect_to contact_path(@contact)
   end
 
   private
-    def phone_number_params
-      params.require(:phone_number).permit(:kind, :number)
-    end
+    def email_params
+      params.require(:email).permit(:email_address)
+    end  
 end

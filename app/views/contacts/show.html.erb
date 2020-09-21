@@ -58,5 +58,24 @@
 <%= render partial: 'phone_numbers/form', locals: {contact: @contact, phone_number: @phone_number} %>
 <hr>
 
+<% if @contact.emails.any? %>
+<h2>Email Addresses</h2>
+  <% @contact.emails.each do |email| %>
+  <table>
+    <tr>
+      <td><%= email.email_address %></td>
+      <td><%= link_to 'Edit Email', edit_contact_email_path(email.contact, email) %></td>
+      <td><%= link_to 'Destroy Email', [email.contact, email],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </table>
+  <% end %>
+<% end %>
+
+<h2>Add an email:</h2>
+<%= render partial: 'emails/form', locals: {contact: @contact, email: @email} %>
+<hr>
+
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
