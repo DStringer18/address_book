@@ -25,10 +25,10 @@ class AddressesController < ApplicationController
 
   def update
     @contact = Contact.find(params[:contact_id])
-    @address = @contact.addresses.create(address_params)
+    @address = @contact.addresses.find(params[:id])
 
     if @address.update(address_params)
-      redirect_to @address, notice: "Saved!"
+      redirect_to @contact, notice: "Saved!"
     else
       render 'edit'
     end

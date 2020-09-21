@@ -15,13 +15,11 @@
   <%= @contact.comment %>
   </p>
 </p>
-
 <% if @contact.addresses.any? %>
 <h2>Addresses</h2>
   <% @contact.addresses.each do |address| %>
   <table>
-  <tr>
-      <td><%= address.id %></td>
+    <tr>
       <td><%= address.street %></td>
       <td><%= address.town %></td>
       <td><%= address.zip %></td>
@@ -29,15 +27,36 @@
       <td><%= address.country %></td>
       <td><%= link_to 'Edit Address', edit_contact_address_path(address.contact, address) %></td>
       <td><%= link_to 'Destroy Address', [address.contact, address],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %></td>
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
     </tr>
+  </table>
   <% end %>
 <% end %>
 
-<hr> 
 <h2>Add an address:</h2>
 <%= render partial: 'addresses/form', locals: {contact: @contact, address: @address} %>
+<hr> 
+
+<% if @contact.phone_numbers.any? %>
+<h2>Phone Numbers</h2>
+  <% @contact.phone_numbers.each do |phone_number| %>
+  <table>
+    <tr>
+        <td><%= phone_number.kind %></td>
+        <td><%= phone_number.number %></td>
+        <td><%= link_to 'Edit Phone Number', edit_contact_phone_number_path(phone_number.contact, phone_number) %></td>
+        <td><%= link_to 'Destroy Phone Number', [phone_number.contact, phone_number],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </table>
+  <% end %>
+<% end %>
+
+<h2>Add a phone number:</h2>
+<%= render partial: 'phone_numbers/form', locals: {contact: @contact, phone_number: @phone_number} %>
+<hr>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
