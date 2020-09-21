@@ -19,7 +19,6 @@
 <% if @contact.addresses.any? %>
 <h2>Addresses</h2>
   <% @contact.addresses.each do |address| %>
-  <% debug address.id %>
   <table>
   <tr>
       <td><%= address.id %></td>
@@ -33,7 +32,7 @@
                method: :delete,
                data: { confirm: 'Are you sure?' } %></td>
     </tr>
-    <% end %>
+  <% end %>
 <% end %>
 
 <hr> 
