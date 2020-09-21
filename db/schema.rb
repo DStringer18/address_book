@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_102753) do
 
   create_table "emails", force: :cascade do |t|
     t.string "email_address"
+    t.string "comment"
     t.bigint "contact_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_102753) do
   create_table "phone_numbers", force: :cascade do |t|
     t.string "kind"
     t.string "number"
+    t.string "comment"
     t.bigint "contact_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

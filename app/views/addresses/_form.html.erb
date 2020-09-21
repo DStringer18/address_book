@@ -1,24 +1,45 @@
 <%= form_with model: [ contact, address ] do |form| %>
+
+  <% if @address.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@address.errors.count, "error") %> prevented this address from being saved:
+      </h2>
+      <ul>
+        <% @address.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
-    <%= form.label :street %><br>
+    <%= form.label :street %>*<br>
     <%= form.text_field :street %>
   </p>
+
   <p>
-    <%= form.label :town %><br>
+    <%= form.label :town %>*<br>
     <%= form.text_field :town %>
   </p>
+
   <p>
-    <%= form.label :zip %><br>
+    <%= form.label :zip %>*<br>
     <%= form.text_field :zip %>
   </p>
+
   <p>
     <%= form.label :state %><br>
     <%= form.text_field :state %>
   </p>
+
   <p>
-    <%= form.label :country %><br>
+    <%= form.label :country %>*<br>
     <%= form.text_field :country %>
   </p>
+
+  <p>* = required field</p>
+
   <p>
     <%= form.submit %>
   </p>

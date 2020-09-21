@@ -1,9 +1,32 @@
 <%= form_with model: [ contact, email ] do |form| %>
+  
+  <% if @email.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@email.errors.count, "error") %> prevented this email from being saved:
+      </h2>
+      <ul>
+        <% @email.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <p>
-    <%= form.label :email_address %><br>
+    <%= form.label :email_address %>*<br>
     <%= form.text_field :email_address %>
   </p>
+
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_field :comment %>
+  </p>
+
+  <p>* = required field</p>
+
   <p>
     <%= form.submit %>
   </p>
+
 <% end %>

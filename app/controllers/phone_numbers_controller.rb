@@ -35,6 +35,6 @@ class PhoneNumbersController < ApplicationController
 
   private
     def phone_number_params
-      params.require(:phone_number).permit(:kind, :number)
+      params.require(:phone_number).permit(:kind, :number, :comment)
     end
 end

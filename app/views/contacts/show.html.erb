@@ -45,6 +45,7 @@
     <tr>
         <td><%= phone_number.kind %></td>
         <td><%= phone_number.number %></td>
+        <td><%= phone_number.comment %></td>
         <td><%= link_to 'Edit Phone Number', edit_contact_phone_number_path(phone_number.contact, phone_number) %></td>
         <td><%= link_to 'Destroy Phone Number', [phone_number.contact, phone_number],
                 method: :delete,
@@ -64,6 +65,7 @@
   <table>
     <tr>
       <td><%= email.email_address %></td>
+      <td><%= email.comment %></td>
       <td><%= link_to 'Edit Email', edit_contact_email_path(email.contact, email) %></td>
       <td><%= link_to 'Destroy Email', [email.contact, email],
               method: :delete,
