@@ -2,8 +2,10 @@
 
 one:
   email_address: MyString
+  comment: MyText
   contact: one
 
 two:
   email_address: MyString
+  comment: MyText
   contact: two

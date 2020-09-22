@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class ContactsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @contact = contacts(:Jan)
 end
+
+test "should get index" do
+  get 
