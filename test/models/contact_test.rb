@@ -2,15 +2,18 @@ require 'test_helper'
 
 
 class ContactTest < ActiveSupport::TestCase
-  #test creation success
-  test ""
-   test "should not save contact without first name" do
+
+  test "should not save contact without first name" do
     contact = Contact.new
-    assert contact.valid?
-   end
+    contact.first_name = ""
+    assert_not contact.save, "Saved the contact without a first name"
+  end
 
-  #test failure when first name is absent
-
-  #test failure when last name is absent
+  test "should not save contact without last name" do
+    contact = Contact.new
+    contact.last_name = ""
+    assert_not contact.save, "Saved the contact without a first name"
+  end
+  
 end
 
