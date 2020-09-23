@@ -1,19 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  salutation: MyString
-  first_name: MyString
-  middle_name: MyString
-  last_name: MyString
-  ssn: MyString
-  dob: MyString
-  comment: MyText
+  salutation: Mr.
+  first_name: Jan
+  middle_name: M
+  last_name: Novak
+  ssn: 555-33-4444
+  dob: 1999-02-03
+  comment: I'm a comment for contact one.
 
 two:
-  salutation: MyString
-  first_name: MyString
-  middle_name: MyString
-  last_name: MyString
-  ssn: MyString
-  dob: MyString
-  comment: MyText
+  salutation: Mrs.
+  first_name: Jana
+  middle_name: B
+  last_name: Novakova
+  ssn: 245-00-2345
+  dob: 1988-03-04
+  comment: I'm a comment for contact two.

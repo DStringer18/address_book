@@ -17,7 +17,7 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create contact" do
     assert_difference('Contact.count') do
-      post contacts_url, params: { contact: { first_name: 'Jan', last_name: 'Novak' } }, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials('dhh', 'secret')}
+      post contacts_url, params: { contact: { first_name: 'Jan', last_name: 'Novak' } }
     end
 
     assert_redirected_to contact_url(Contact.last)

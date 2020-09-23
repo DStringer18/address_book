@@ -3,46 +3,37 @@ require 'test_helper'
 class EmailsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @email = emails(:one)
-  end
-
-  test "should get index" do
-    get emails_url
-    assert_response :success
+    @contact = contacts(:one)
   end
 
   test "should get new" do
-    get new_email_url
+    get new_contact_email_url(@contact)
     assert_response :success
   end
 
   test "should create email" do
     assert_difference('Email.count') do
-      post emails_url, params: { email: { email_address: 'me@test.com' } }, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials('dhh', 'secret') }
+      post contact_emails_url(@contact), params: { email: { email_address: 'me@test.com' } }
     end
 
-    assert_redirected_to email_url(Email.last)
-  end
-
-  test "should show email" do
-    get email_url(@email)
-    assert_response :success
+    assert_redirected_to contact_url(@contact)
   end
 
   test "should get edit" do
-    get edit_email_url(@email)
+    get edit_contact_email_url(@contact, @email)
     assert_response :success
   end
 
   test "should update email" do
-    patch email_url(@email), params: { email: { email_address: 'you@test.com'  } }
-    assert_redirected_to email_url(@email)
+    patch contact_email_url(@contact, @email), params: { email: { email_address: 'you@test.com'  } }
+    assert_redirected_to contact_url(@contact)
   end
 
   test "should destroy email" do
     assert_difference('Email.count', -1) do
-      delete email_url(@email)
+      delete contact_email_url(@contact, @email)
     end
 
-    assert_redirected_to emails_url
+    assert_redirected_to contact_url(@contact)
   end
 end
