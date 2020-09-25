@@ -1,5 +1,5 @@
 <p>
-  <strong>Contact:</strong>
+  <h1>Contact:</h1>
   <p>
   <%= @contact.salutation %>
   <%= @contact.first_name %>
@@ -16,14 +16,14 @@
   </p>
 </p>
 <% if @contact.addresses.any? %>
-<h2>Addresses</h2>
+<h2>Addresses:</h2>
   <% @contact.addresses.each do |address| %>
   <table>
     <tr>
       <td><%= address.street %></td>
       <td><%= address.town %></td>
-      <td><%= address.zip %></td>
       <td><%= address.state %></td>
+      <td><%= address.zip %></td>
       <td><%= address.country %></td>
       <td><%= link_to 'Edit Address', edit_contact_address_path(address.contact, address) %></td>
       <td><%= link_to 'Destroy Address', [address.contact, address],
@@ -39,13 +39,13 @@
 <hr> 
 
 <% if @contact.phone_numbers.any? %>
-<h2>Phone Numbers</h2>
+<h2>Phone Numbers:</h2>
   <% @contact.phone_numbers.each do |phone_number| %>
   <table>
     <tr>
-        <td><%= phone_number.kind %></td>
-        <td><%= phone_number.number %></td>
-        <td><%= phone_number.comment %></td>
+        <td><%= phone_number.kind %></td><br>
+        <td><%= phone_number.number %></td><br>
+        <td><%= phone_number.comment %></td><br>
         <td><%= link_to 'Edit Phone Number', edit_contact_phone_number_path(phone_number.contact, phone_number) %></td>
         <td><%= link_to 'Destroy Phone Number', [phone_number.contact, phone_number],
                 method: :delete,
@@ -60,7 +60,7 @@
 <hr>
 
 <% if @contact.emails.any? %>
-<h2>Email Addresses</h2>
+<h2>Email Addresses:</h2>
   <% @contact.emails.each do |email| %>
   <table>
     <tr>
