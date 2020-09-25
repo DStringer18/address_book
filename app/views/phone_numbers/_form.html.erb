@@ -15,7 +15,7 @@
 
   <p>
     <%= form.label :kind %><br>
-    <%= form.text_field :kind %>
+    <%= select_tag(:kind, options_for_select([['Home', 1], ['Cell', 2], ['Office', 3], ['Other', 4]])) %>
   </p>
 
   <p>

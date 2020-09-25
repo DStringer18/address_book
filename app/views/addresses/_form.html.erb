@@ -35,7 +35,7 @@
 
   <p>
     <%= form.label :country %>*<br>
-    <%= form.text_field :country %>
+    <%= form.country_select :country, {priority_countries: ["US", "CZ"]}  %>
   </p>
 
   <p>* = required field</p>
