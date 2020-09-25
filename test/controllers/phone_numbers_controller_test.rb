@@ -6,6 +6,11 @@ class PhoneNumbersControllerTest < ActionDispatch::IntegrationTest
     @contact = contacts(:one)
   end
 
+  test "should get index" do
+    get contact_phone_numbers_url(@contact)
+    assert_response :success
+  end
+
   test "should get new" do
     get new_contact_phone_number_url(@contact)
     assert_response :success
@@ -16,7 +21,7 @@ class PhoneNumbersControllerTest < ActionDispatch::IntegrationTest
       post contact_phone_numbers_url(@contact), params: { phone_number: { number: "503-222-3456" } }
     end
 
-    assert_redirected_to contact_url(@contact)
+    assert_redirected_to contact_phone_numbers_url(@contact)
   end
 
   test "should get edit" do
@@ -26,7 +31,7 @@ class PhoneNumbersControllerTest < ActionDispatch::IntegrationTest
 
   test "should update phone_number" do
     patch contact_phone_number_url(@contact, @phone_number), params: { phone_number: { number: "500-000-3421" } }
-    assert_redirected_to contact_url(@contact)
+    assert_redirected_to contact_phone_numbers_url(@contact)
   end
 
   test "should destroy phone_number" do
@@ -34,6 +39,6 @@ class PhoneNumbersControllerTest < ActionDispatch::IntegrationTest
       delete contact_phone_number_url(@contact, @phone_number)
     end
 
-    assert_redirected_to contact_url(@contact)
+    assert_redirected_to contact_phone_numbers_url(@contact)
   end
 end

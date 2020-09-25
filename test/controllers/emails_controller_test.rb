@@ -6,6 +6,11 @@ class EmailsControllerTest < ActionDispatch::IntegrationTest
     @contact = contacts(:one)
   end
 
+  test "should get index" do
+    get contact_emails_url(@contact)
+    assert_response :success
+  end
+
   test "should get new" do
     get new_contact_email_url(@contact)
     assert_response :success
@@ -16,7 +21,7 @@ class EmailsControllerTest < ActionDispatch::IntegrationTest
       post contact_emails_url(@contact), params: { email: { email_address: 'me@test.com' } }
     end
 
-    assert_redirected_to contact_url(@contact)
+    assert_redirected_to contact_emails_url(@contact)
   end
 
   test "should get edit" do
@@ -26,7 +31,7 @@ class EmailsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update email" do
     patch contact_email_url(@contact, @email), params: { email: { email_address: 'you@test.com'  } }
-    assert_redirected_to contact_url(@contact)
+    assert_redirected_to contact_emails_url(@contact)
   end
 
   test "should destroy email" do
@@ -34,6 +39,6 @@ class EmailsControllerTest < ActionDispatch::IntegrationTest
       delete contact_email_url(@contact, @email)
     end
 
-    assert_redirected_to contact_url(@contact)
+    assert_redirected_to contact_emails_url(@contact)
   end
 end

@@ -15,7 +15,7 @@
 
   <p>
     <%= form.label :salutation %><br>
-    <%= select_tag(:salutation, options_for_select([['Mr', 1], ['Mrs', 2], ['Ms', 3], ['Mx', 4]])) %><br>
+    <%= form.select(:salutation, options_for_select([['Mr'], ['Mrs'], ['Ms'], ['Mx']])) %><br>
     <%= form.label :first_name, "First Name*" %><br>
     <%= form.text_field :first_name %><br>
     <%= form.label :middle_name, "Middle Name" %><br>

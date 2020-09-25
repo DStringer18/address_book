@@ -1,4 +1,11 @@
 class PhoneNumbersController < ApplicationController  
+  
+  def index
+    @contact = Contact.find(params[:contact_id])
+    @phone_numbers = PhoneNumber.all
+    @phone_number = PhoneNumber.new
+  end
+  
   def new
     @contact = Contact.find(params[:contact_id])
     @phone_number = PhoneNumber.new
@@ -12,7 +19,7 @@ class PhoneNumbersController < ApplicationController
   def create
     @contact = Contact.find(params[:contact_id])
     @phone_number = @contact.phone_numbers.create(phone_number_params)
-    redirect_to contact_path(@contact)
+    redirect_to contact_phone_numbers_path(@contact)
   end
 
   def update
@@ -20,7 +27,7 @@ class PhoneNumbersController < ApplicationController
     @phone_number = @contact.phone_numbers.find(params[:id])
 
     if @phone_number.update(phone_number_params)
-      redirect_to @contact, notice: "Saved!"
+      redirect_to contact_phone_numbers_path(@contact), notice: "Saved!"
     else
       render 'edit'
     end
@@ -30,7 +37,7 @@ class PhoneNumbersController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @phone_number = @contact.phone_numbers.find(params[:id])
     @phone_number.destroy
-    redirect_to contact_path(@contact)
+    redirect_to contact_phone_numbers_path(@contact)
   end
 
   private

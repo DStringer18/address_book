@@ -2,4 +2,4 @@
 
 <%= render partial: 'form', locals: {contact: @contact, address: @address} %>
 
-<%= link_to 'Back', contacts_path %>
+<%= link_to 'Back', contact_addresses_path(@contact) %>

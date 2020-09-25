@@ -1,0 +1,21 @@
+<h1>Email Addresses:</h1>
+<% if @contact.emails.any? %>
+  <% @contact.emails.each do |email| %>
+  <table>
+    <tr>
+      <td><%= email.email_address %></td>
+      <td><%= email.comment %></td>
+      <td><%= link_to 'Edit', edit_contact_email_path(email.contact, email) %></td>
+      <td><%= link_to 'Destroy', [email.contact, email],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </table>
+  <% end %>
+<% end %>
+
+<hr>
+<h2>Add an email:</h2>
+<%= render partial: 'form', locals: {contact: @contact, email: @email} %>
+
+<%= link_to 'Back to Contact', contact_path(@contact) %>
