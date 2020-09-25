@@ -1,24 +1,22 @@
-<h1>Contacts</h1>
-<%= link_to 'New Contact', new_contact_path %>
-<table>
-  <tr>
-    <th>Sal.</th>
-    <th>First</th>
-    <th>Middle</th>
-    <th>Last</th>
-  </tr>
+<div class="title-container">
+  <h1>Contacts</h1>
+  <%= link_to 'New Contact', new_contact_path %>
+</div>
 
-  <% @contacts.each do |contact| %>
-    <tr>
-      <td><%= contact.salutation %></td>
-      <td><%= contact.first_name %></td>
-      <td><%= contact.middle_name %></td>
-      <td><%= contact.last_name %></td>
-      <td><%= link_to 'Show', contact_path(contact) %></td>
-      <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-      <td><%= link_to 'Destroy', contact_path(contact),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="contacts">
+  <table>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.salutation %></td>
+        <td><%= contact.first_name %></td>
+        <td><%= contact.middle_name %></td>
+        <td><%= contact.last_name %></td>
+        <td><%= link_to 'Show', contact_path(contact) %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Destroy', contact_path(contact),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
