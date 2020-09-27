@@ -5,22 +5,20 @@
 <div class="phone-numbers">
   <% if @contact.phone_numbers.any? %>
     <% @contact.phone_numbers.each do |phone_number| %>
-    <table>
-      <tr>
-          <td><%= phone_number.kind %></td>
-          <td><%= phone_number.number %></td>
-          <td><%= phone_number.comment %></td>
-          <td><%= link_to 'Edit', edit_contact_phone_number_path(phone_number.contact, phone_number) %> |</td>
-          <td><%= link_to 'Destroy', [phone_number.contact, phone_number],
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    </table>
+    <div class="phone-number">
+      <p><%= phone_number.kind %></p>
+      <p><%= phone_number.number %></p>
+      <p><%= phone_number.comment %></p>
+      <p><%= link_to 'Edit', edit_contact_phone_number_path(phone_number.contact, phone_number) %> |
+      <%= link_to 'Destroy', [phone_number.contact, phone_number],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></p>
+      <hr>
+    </div>
     <% end %>
   <% end %>
 </div>
 
-<hr>
 
 <div class="phone-number-add">
   <h2>Add a phone number:</h2>

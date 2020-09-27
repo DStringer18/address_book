@@ -15,32 +15,32 @@
 
   <p>
     <%= form.label :street %>*<br>
-    <%= form.text_field :street %>
+    <%= form.text_field :street, class: "form-control" %>
   </p>
 
   <p>
     <%= form.label :town %>*<br>
-    <%= form.text_field :town %>
+    <%= form.text_field :town, class: "form-control" %>
   </p>
 
   <p>
     <%= form.label :zip %>*<br>
-    <%= form.text_field :zip %>
+    <%= form.text_field :zip, class: "form-control" %>
   </p>
 
   <p>
     <%= form.label :state %><br>
-    <%= form.text_field :state %>
+    <%= form.text_field :state, class: "form-control" %>
   </p>
 
   <p>
     <%= form.label :country %>*<br>
-    <%= form.country_select :country, {priority_countries: ["US", "CZ"]}  %>
+    <%= form.country_select :country, {priority_countries: ["US", "CZ"]}, class: "form-control"  %>
   </p>
 
   <p>* = required field</p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </p>
 <% end %>

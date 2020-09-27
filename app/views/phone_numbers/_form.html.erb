@@ -15,22 +15,22 @@
 
   <p>
     <%= form.label :kind %><br>
-    <%= form.select :kind, options_for_select([['Home'], ['Cell'], ['Office'], ['Other']]) %>
+    <%= form.select :kind, options_for_select([['Home'], ['Cell'], ['Office'], ['Other']]), class: "form-control" %>
   </p>
 
   <p>
     <%= form.label :number %>*<br>
-    <%= form.text_field :number %>
+    <%= form.text_field :number, class: "form-control" %>
   </p>
 
   <p>
     <%= form.label :comment %><br>
-    <%= form.text_area :comment %>
+    <%= form.text_area :comment, class: "form-control" %>
   </p>
 
   <p>* = required field</p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </p>
 <% end %>

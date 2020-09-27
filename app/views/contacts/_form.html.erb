@@ -15,34 +15,34 @@
 
   <p>
     <%= form.label :salutation %><br>
-    <%= form.select(:salutation, options_for_select([['Mr.'], ['Mrs.'], ['Ms.'], ['Mx']])) %><br>
+    <%= form.select :salutation, options_for_select([['Mr.'], ['Mrs.'], ['Ms.'], ['Mx']]), class: "form-control"  %><br>
     <%= form.label :first_name, "First Name*" %><br>
-    <%= form.text_field :first_name %><br>
+    <%= form.text_field :first_name, class: "form-control" %><br>
     <%= form.label :middle_name, "Middle Name" %><br>
-    <%= form.text_field :middle_name %><br>
+    <%= form.text_field :middle_name, class: "form-control" %><br>
     <%= form.label :last_name, "Last Name*" %><br>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class: "form-control" %>
   </p>
 
   <p>
     <%= form.label :ssn, "Social Security Number" %><br>
-    <%= form.text_field :ssn %>
+    <%= form.text_field :ssn, class: "form-control" %>
   </p>
 
   <p>
     <%= form.label :dob, "Date of Birth" %><br>
-    <%= form.date_field :dob %>
+    <%= form.date_field :dob, class: "form-control" %>
   </p>
   
   <p>
     <%= form.label :comment, "Comment" %><br>
-    <%= form.text_area :comment %>
+    <%= form.text_area :comment, class: "form-control" %>
   </p>
 
   <p>* = required field</p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </p>
  
 <% end %>

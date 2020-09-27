@@ -5,16 +5,13 @@
 <div class="emails">
   <% if @contact.emails.any? %>
     <% @contact.emails.each do |email| %>
-    <table>
-      <tr>
-        <td><%= email.email_address %></td>
-        <td><%= email.comment %></td>
-        <td><%= link_to 'Edit', edit_contact_email_path(email.contact, email) %></td>
-        <td><%= link_to 'Destroy', [email.contact, email],
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    </table>
+    <div class="email">
+      <p><%= email.email_address %></p>
+      <p><%= email.comment %></p>
+      <p><%= link_to 'Edit', edit_contact_email_path(email.contact, email) %> | <%= link_to 'Delete', [email.contact, email],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></p>
+    </div>
     <% end %>
   <% end %>
 </div>

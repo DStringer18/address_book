@@ -1,22 +1,33 @@
 <div class="title-container">
   <h1>Contacts</h1>
+</div>
+<div class='link-to-new'>
   <%= link_to 'New Contact', new_contact_path %>
 </div>
-
-<div class="contacts">
+<div class="container" id="contacts">
   <table>
     <% @contacts.each do |contact| %>
-      <tr class="contact">
-        <td class="contact-item"><%= contact.salutation %></td>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.middle_name %></td>
-        <td><%= contact.last_name %></td>
-        <td><%= link_to 'Show', contact_path(contact) %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact_path(contact),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
+      <tr class="row">
+        <div class="col-9">
+          <td><%= contact.salutation %></td>
+          <td><%= contact.first_name %></td>
+          <% if contact.middle_name.present? %>
+            <td><%= contact.middle_name %></td>
+          <% end %>
+          <td><%= contact.last_name %></td>
+        </div>
+        <div class="col-3">
+          <td class="contact-link">
+            <%= link_to 'View', contact_path(contact), class: "btn btn-dark" %> |
+            <%= link_to 'Edit', edit_contact_path(contact), class: "btn btn-dark" %> |
+            <%= link_to 'Delete', contact_path(contact),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }, class: "btn btn-dark" %>
+          </td>
+        </div>
       </tr>
     <% end %>
   </table>
 </div>
+
+

@@ -5,25 +5,18 @@
 <div class="addresses">
   <% if @contact.addresses.any? %>
     <% @contact.addresses.each do |address| %>
-    <table>
-      <tr>
-        <td><%= address.street %></td>
-        <td><%= address.town %></td>
-        <td><%= address.state %></td>
-        <td><%= address.zip %></td>
-        <td><%= address.country %></td>
-        <br>
-        <td><%= link_to 'Edit', edit_contact_address_path(address.contact, address) %></td>
-        <td><%= link_to 'Destroy', [address.contact, address],
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    </table>
+    <div class="address">
+      <p><%= address.street %> <%= address.town %></p>
+      <p><%= address.state %> <%= address.zip %> <%= address.country %></p>
+      <p><%= link_to 'Edit', edit_contact_address_path(address.contact, address) %>
+          <%= link_to 'Destroy', [address.contact, address],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></p>
+      <hr>
+    </div>
     <% end %>
   <% end %>
 </div>
-
-<hr> 
 
 <div class="address-add">
   <h2>Add an address:</h2>

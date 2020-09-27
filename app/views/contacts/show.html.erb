@@ -1,5 +1,15 @@
+<header class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="navbar-nav navbar-right">
+      <li class="nav-item"><%=link_to 'Addresses', contact_addresses_path(@contact), class:"nav-link" %> </li>
+      <li class="nav-item"><%=link_to 'Phone Numbers', contact_phone_numbers_path(@contact), class:"nav-link" %> </li>
+      <li class="nav-item"><%=link_to 'Emails', contact_emails_path(@contact), class:"nav-link" %> </li>
+    </ul>
+  </nav>
+</header>
+
 <p>
-  <h1>Contact:</h1>
+<h1>Contact:</h1>
   <p>
   <%= @contact.salutation %>
   <%= @contact.first_name %>
@@ -16,13 +26,58 @@
   </p>
 </p>
 
-<%=link_to 'Addresses', contact_addresses_path(@contact) %>
-<br>
-<%=link_to 'Phone Numbers', contact_phone_numbers_path(@contact) %>
-<br>
-<%=link_to 'Emails', contact_emails_path(@contact) %>
+<% if @contact.addresses.any? %>
+  <h3>Addresses:</h3>
+  <div class="addresses">
+    <% @contact.addresses.each do |address| %>
+      <div class="address">
+        <p><%= address.street %> <%= address.town %></p>
+        <p><%= address.state %> <%= address.zip %> <%= address.country %></p>
+        <p><%= link_to 'Edit', edit_contact_address_path(address.contact, address) %> | 
+           <%= link_to 'Delete', [address.contact, address],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></p>
+        <hr>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
-<hr>
+<% if @contact.emails.any? %>
+  <h3>Emails:</h3>
+  <div class="emails">
+    <% @contact.emails.each do |email| %>
+    <div class="email">
+      <p><%= email.email_address %></p>
+      <p><%= email.comment %></p>
+      <p><%= link_to 'Edit', edit_contact_email_path(email.contact, email) %> | 
+         <%= link_to 'Delete', [email.contact, email],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></p>
+    </div>
+    <% end %>
+  </div>
+<% end %>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<% if @contact.phone_numbers.any? %>
+  <h3>Phone Numbers:</h3>
+  <div class="phone-numbers">
+    <% @contact.phone_numbers.each do |phone_number| %>
+    <div class="phone-number">
+      <p><%= phone_number.kind %></p>
+      <p><%= phone_number.number %></p>
+      <p><%= phone_number.comment %></p>
+      <p><%= link_to 'Edit', edit_contact_phone_number_path(phone_number.contact, phone_number) %> |
+         <%= link_to 'Delete', [phone_number.contact, phone_number],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></p>
+      <hr>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit Contact', edit_contact_path(@contact) %> |
+<%= link_to 'Delete Contact', contact_path(@contact),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>

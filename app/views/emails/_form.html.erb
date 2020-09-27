@@ -15,18 +15,18 @@
   
   <p>
     <%= form.label :email_address %>*<br>
-    <%= form.text_field :email_address %>
+    <%= form.text_field :email_address, class: "form-control" %>
   </p>
 
   <p>
     <%= form.label :comment %><br>
-    <%= form.text_area :comment %>
+    <%= form.text_area :comment, class: "form-control" %>
   </p>
 
   <p>* = required field</p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </p>
 
 <% end %>
