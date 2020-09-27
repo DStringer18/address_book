@@ -1,22 +1,30 @@
-<h1>Phone Numbers:</h1>
-<% if @contact.phone_numbers.any? %>
-  <% @contact.phone_numbers.each do |phone_number| %>
-  <table>
-    <tr>
-        <td><%= phone_number.kind %></td>
-        <td><%= phone_number.number %></td>
-        <td><%= phone_number.comment %></td>
-        <td><%= link_to 'Edit', edit_contact_phone_number_path(phone_number.contact, phone_number) %> |</td>
-        <td><%= link_to 'Destroy', [phone_number.contact, phone_number],
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  </table>
+<div class="title-container">
+  <h1>Phone Numbers:</h1>
+</div>
+
+<div class="phone-numbers">
+  <% if @contact.phone_numbers.any? %>
+    <% @contact.phone_numbers.each do |phone_number| %>
+    <table>
+      <tr>
+          <td><%= phone_number.kind %></td>
+          <td><%= phone_number.number %></td>
+          <td><%= phone_number.comment %></td>
+          <td><%= link_to 'Edit', edit_contact_phone_number_path(phone_number.contact, phone_number) %> |</td>
+          <td><%= link_to 'Destroy', [phone_number.contact, phone_number],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </table>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <hr>
-<h2>Add a phone number:</h2>
-<%= render partial: 'form', locals: {contact: @contact, phone_number: @phone_number} %>
+
+<div class="phone-number-add">
+  <h2>Add a phone number:</h2>
+  <%= render partial: 'form', locals: {contact: @contact, phone_number: @phone_number} %>
+</div>
 
 <%= link_to 'Back to Contact', contact_path(@contact) %>

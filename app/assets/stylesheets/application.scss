@@ -13,4 +13,30 @@
  */
 
 @import "bootstrap/scss/bootstrap";
-@import "main"
+@import "main";
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  
+  h1 {
+    margin: 0
+  }
+}
+
+
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 1px black;
+}
+
+.contact {
+  width: 30%;
+  min-width: 300px;
+  border: 1px black;
+}

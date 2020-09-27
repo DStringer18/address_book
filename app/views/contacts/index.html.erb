@@ -6,8 +6,8 @@
 <div class="contacts">
   <table>
     <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.salutation %></td>
+      <tr class="contact">
+        <td class="contact-item"><%= contact.salutation %></td>
         <td><%= contact.first_name %></td>
         <td><%= contact.middle_name %></td>
         <td><%= contact.last_name %></td>
