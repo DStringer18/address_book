@@ -21,9 +21,13 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
- 
+    logger.debug "New contact: #{@contact.attributes.inspect}"
+    logger.debug "Contact should have errors: #{@contact.errors.any?}"
+    logger.debug "Contact should be invalid: #{@contact.invalid?}"
+
     if @contact.save
-      redirect_to @contact
+      logger.debug "The contact was saved and now the user is going to be redirected..."
+      redirect_to @contact, notice: 'Contact was successfully created'
     else
       render 'new'
     end
