@@ -10,10 +10,15 @@
  *
  *= require_self
  *= require_tree .
- */
+*/
 
 @import "bootstrap/scss/bootstrap";
 @import "main";
+
+#title {
+  text-decoration: none;
+  color: white;
+}
 
 .title-container {
   display: flex;
@@ -26,16 +31,35 @@
   }
 }
 
+h1 {
+  font-size: 90px;
+}
+
+h4 {
+  font-size: 70px;
+}
+
+p {
+  font-size: 50px;
+  padding: 10px;
+}
+
+.contact-details {
+  font-size: 50px;
+}
+
 .link-to-new {
   padding: 20px;
 }
 
 .row {
-  background-color: rgb(63, 32, 240);
-  padding: 20px;
-  margin: 10px;
-  border-radius: 15px 50px;
   width: 100%
+}
+
+.col{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 td {
@@ -43,10 +67,14 @@ td {
   padding: 10px;
 }
 
-.emails, .phone-numbers, .addresses {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.emails, .addresses {
+  background-color: rgb(168, 217, 245);
+  border-radius: 15px;
+}
+
+.phone-numbers {
+  background-color: rgb(176, 191, 199);
+  border-radius: 15px;
 }
 
 .email, .phone-number, .address {
@@ -55,3 +83,4 @@ td {
 }
 
 
+ 
