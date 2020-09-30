@@ -62,9 +62,9 @@
   <br>
   <div class="container emails">
     <h4>Emails:</h4>
-    <p><%= link_to 'New Email', new_contact_email_path(@contact), class:"btn btn-primary" %></p>
+    <p id="new-email"><%= link_to 'New Email', new_contact_email_path(@contact), remote: true, class:"btn btn-primary" %></p>
     <% if @contact.emails.any? %>
-      <div class="row">
+      <div class="row" id="emails">
         <% @contact.emails.each do |email| %>
           <div class="col-sm-12 col-m-3">
             <p><%= email.email_address %></p>
