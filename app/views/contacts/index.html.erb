@@ -7,8 +7,8 @@
 <div class="container" id="contacts">
   <table>
     <% @contacts.each do |contact| %>
-      <tr class="row">
-        <div class="col-auto">
+      <tr class="row contact">
+        <div class="col-9">
           <td><%= contact.salutation %></td>
           <td><%= contact.first_name %></td>
           <% if contact.middle_name.present? %>
@@ -18,11 +18,11 @@
         </div>
         <div class="col-3">
           <td class="contact-link">
-            <%= link_to 'View', contact_path(contact), class: "btn btn-outline-primary" %> |
-            <%= link_to 'Edit', edit_contact_path(contact), class: "btn btn-outline-primary" %> |
+            <%= link_to 'View', contact_path(contact), class: "contact-btn btn btn-outline-primary" %> |
+            <%= link_to 'Edit', edit_contact_path(contact), class: "contact-btn btn btn-outline-primary" %> |
             <%= link_to 'Delete', contact_path(contact),
                   method: :delete,
-                  data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary" %>
+                  data: { confirm: 'Are you sure?' }, class: "contact-btn btn btn-outline-primary" %>
           </td>
         </div>
       </tr>

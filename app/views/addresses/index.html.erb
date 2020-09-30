@@ -1,26 +1,28 @@
-<div class="title-container">
-  <h1>Addresses:</h1>
-</div>
+<div class="container">
+  <div class="title-container">
+    <h1>Addresses:</h1>
+  </div>
 
-<div class="addresses">
-  <% if @contact.addresses.any? %>
-    <% @contact.addresses.each do |address| %>
-    <div class="address">
-      <p><%= address.street %> <%= address.town %></p>
-      <p><%= address.state %> <%= address.zip %> <%= address.country %></p>
-      <p><%= link_to 'Edit', edit_contact_address_path(address.contact, address) %>
-          <%= link_to 'Destroy', [address.contact, address],
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></p>
-      <hr>
-    </div>
+  <div class="addresses">
+    <% if @contact.addresses.any? %>
+      <% @contact.addresses.each do |address| %>
+      <div class="address">
+        <p><%= address.street %> <%= address.town %></p>
+        <p><%= address.state %> <%= address.zip %> <%= address.country %></p>
+        <p><%= link_to 'Edit', edit_contact_address_path(address.contact, address) %>
+            <%= link_to 'Destroy', [address.contact, address],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></p>
+        <hr>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-<div class="address-add">
-  <h2>Add an address:</h2>
-  <%= render partial: 'form', locals: {contact: @contact, address: @address} %>
-</div>
+  <div class="address-add">
+    <h2>Add an address:</h2>
+    <%= render partial: 'form', locals: {contact: @contact, address: @address} %>
+  </div>
 
-<%= link_to 'Back to Contact', contact_path(@contact) %>
+  <%= link_to 'Back to Contact', contact_path(@contact), class:'footer-links' %>
+</div>

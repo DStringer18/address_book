@@ -1,85 +1,87 @@
-<h1 class="contact-name">
-  <%= @contact.salutation %>
-  <%= @contact.first_name %>
-  <%= @contact.middle_name %>
-  <%= @contact.last_name %>
-</h1>
-<div class="container contact-details">
-  <p class="row">
-    <div class="col-xs-12 col-lg-3">
-      <strong>SSN:</strong>
-      <%= @contact.ssn %><br>
-    </div>
-    <div class="col-xs-12 col-lg-3">
-      <strong>Date of Birth:</strong>
-      <%= @contact.dob %><br>
-    </div>
-    <div class="col-xs-12 col-lg-3">
-      <strong>Comment:</strong>
-      <%= @contact.comment %>
-    </div>
-  </p>
-</div>
-<br>
-<div class="container addresses">
-  <h4>Addresses:</h4>
-  <p><%= link_to 'New Address', new_contact_address_path(@contact) %></p>
-  <% if @contact.addresses.any? %>
-    <div class="row flex-wrap">
-      <% @contact.addresses.each do |address| %>
-        <div class="col-xs-12 col-lg-3">
-          <p class="row"><%= address.street %> <%= address.town %></p>
-          <p class="row"><%= address.state %> <%= address.zip %> <%= address.country %></p>
-          <p class="row"><%= link_to 'Edit', edit_contact_address_path(address.contact, address) %> |
-              <%= link_to 'Destroy', [address.contact, address],
+<div class="contact-container container">
+  <h1 class="contact-name">
+    <%= @contact.salutation %>
+    <%= @contact.first_name %>
+    <%= @contact.middle_name %>
+    <%= @contact.last_name %>
+  </h1>
+  <div class="container contact-details">
+    <p class="row">
+      <div class="col-xs-12 col-lg-6">
+        <strong>SSN:</strong>
+        <%= @contact.ssn %><br>
+      </div>
+      <div class="col-xs-12 col-lg-6">
+        <strong>Date of Birth:</strong>
+        <%= @contact.dob %><br>
+      </div>
+      <div class="col-xs-12 col-lg-6">
+        <strong>Comment:</strong>
+        <%= @contact.comment %>
+      </div>
+    </p>
+  </div>
+  <br>
+  <div class="container addresses">
+    <h4>Addresses:</h4>
+    <p><%= link_to 'New Address', new_contact_address_path(@contact), class:"btn btn-primary" %></p>
+    <% if @contact.addresses.any? %>
+      <div class="row">
+        <% @contact.addresses.each do |address| %>
+          <div class="col-12">
+            <p class><%= address.street %> <%= address.town %></p>
+            <p class><%= address.state %> <%= address.zip %> <%= address.country %></p>
+            <p class><%= link_to 'Edit', edit_contact_address_path(address.contact, address) %> |
+                <%= link_to 'Delete', [address.contact, address],
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <div class="container phone-numbers">
+    <h4>Phone Numbers:</h4>
+    <p><%= link_to 'New Phone Number', new_contact_phone_number_path(@contact), class:"btn btn-primary" %></p>
+    <% if @contact.phone_numbers.any? %>
+      <div class="row">
+        <% @contact.phone_numbers.each do |phone_number| %>
+          <div class="col-12">
+            <p><%= phone_number.number %></p>
+            <p><%= phone_number.comment %></p>
+            <p><%= link_to 'Edit', edit_contact_phone_number_path(phone_number.contact, phone_number) %> | 
+                <%= link_to 'Delete', [phone_number.contact, phone_number],
                     method: :delete,
                     data: { confirm: 'Are you sure?' } %></p>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <div class="container emails">
+    <h4>Emails:</h4>
+    <p><%= link_to 'New Email', new_contact_email_path(@contact), class:"btn btn-primary" %></p>
+    <% if @contact.emails.any? %>
+      <div class="row">
+        <% @contact.emails.each do |email| %>
+          <div class="col-sm-12 col-m-3">
+            <p><%= email.email_address %></p>
+            <p><%= email.comment %></p>
+            <p><%= link_to 'Edit', edit_contact_email_path(email.contact, email) %> | <%= link_to 'Delete', [email.contact, email],
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="footer-links col-sm-12 col-m-3">
+    <%= link_to 'All Contacts', contacts_path %> |
+    <%= link_to 'Edit Contact', edit_contact_path(@contact) %> |
+    <%= link_to 'Delete Contact', contact_path(@contact),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+  </div>
 </div>
-<br>
-<div class="container phone-numbers">
-  <h4>Phone Numbers:</h4>
-  <p><%= link_to 'New Phone Number', new_contact_phone_number_path(@contact) %></p>
-  <% if @contact.phone_numbers.any? %>
-    <div class="row">
-      <% @contact.phone_numbers.each do |phone_number| %>
-        <div class="col-sm-12 col-m-3">
-          <p><%= phone_number.kind %></p>
-          <p><%= phone_number.number %></p>
-          <p><%= phone_number.comment %></p>
-          <p><%= link_to 'Edit', edit_contact_phone_number_path(phone_number.contact, phone_number) %> |
-          <%= link_to 'Destroy', [phone_number.contact, phone_number],
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></p>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-<br>
-<div class="container emails">
-  <h4>Emails:</h4>
-  <p><%= link_to 'New Email', new_contact_email_path(@contact) %></p>
-  <% if @contact.emails.any? %>
-    <div class="row">
-      <% @contact.emails.each do |email| %>
-        <div class="col-sm-12 col-m-3">
-          <p><%= email.email_address %></p>
-          <p><%= email.comment %></p>
-          <p><%= link_to 'Edit', edit_contact_email_path(email.contact, email) %> | <%= link_to 'Delete', [email.contact, email],
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></p>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
-<%= link_to 'All Contacts', contacts_path %> |
-<%= link_to 'Edit Contact', edit_contact_path(@contact) %> |
-<%= link_to 'Delete Contact', contact_path(@contact),
-    method: :delete,
-    data: { confirm: 'Are you sure?' } %>

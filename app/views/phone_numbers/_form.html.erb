@@ -14,11 +14,6 @@
   <% end %>
 
   <p>
-    <%= form.label :kind %><br>
-    <%= form.select :kind, options_for_select([['Home'], ['Cell'], ['Office'], ['Other']]), class: "form-control" %>
-  </p>
-
-  <p>
     <%= form.label :number %>*<br>
     <%= form.text_field :number, class: "form-control" %>
   </p>
@@ -31,6 +26,6 @@
   <p>* = required field</p>
 
   <p>
-    <%= form.submit class: "btn btn-primary" %>
+    <%= form.submit class: "submit btn btn-primary" %>
   </p>
 <% end %>
