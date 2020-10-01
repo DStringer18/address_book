@@ -42,11 +42,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
-    respond_to do |format|
-      format.js
-      format.html { redirect_to contacts_path, notice: 'Contact was successfully deleted' }
-      format.json { head :no_content }
-    end
+    redirect_to contacts_path
   end
 
   private
