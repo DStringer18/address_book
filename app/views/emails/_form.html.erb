@@ -1,4 +1,4 @@
-<%= form_with model: [ contact, email ] do |form| %>
+<%= form_with model: [ contact, email ], remote: true do |form| %>
   
   <% if @email.errors.any? %>
     <div id="error_explanation">

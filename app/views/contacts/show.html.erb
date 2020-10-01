@@ -28,13 +28,13 @@
     <% if @contact.addresses.any? %>
       <div class="row">
         <% @contact.addresses.each do |address| %>
-          <div class="col-12">
+          <div class="col-12" id="addresses">
             <p class><%= address.street %> <%= address.town %></p>
             <p class><%= address.state %> <%= address.zip %> <%= address.country %></p>
             <p class><%= link_to 'Edit', edit_contact_address_path(address.contact, address) %> |
                 <%= link_to 'Delete', [address.contact, address],
                       method: :delete,
-                      data: { confirm: 'Are you sure?' } %></p>
+                      data: { confirm: 'Are you sure?', remote: true }, class: "delete" %></p>
           </div>
         <% end %>
       </div>
@@ -47,13 +47,13 @@
     <% if @contact.phone_numbers.any? %>
       <div class="row">
         <% @contact.phone_numbers.each do |phone_number| %>
-          <div class="col-12">
+          <div class="col-12" id="phone-numbers">
             <p><%= phone_number.number %></p>
             <p><%= phone_number.comment %></p>
             <p><%= link_to 'Edit', edit_contact_phone_number_path(phone_number.contact, phone_number) %> | 
                 <%= link_to 'Delete', [phone_number.contact, phone_number],
                     method: :delete,
-                    data: { confirm: 'Are you sure?' } %></p>
+                    data: { confirm: 'Are you sure?', remote: true }, class: "delete" %></p>
           </div>
         <% end %>
       </div>
@@ -62,16 +62,16 @@
   <br>
   <div class="container emails">
     <h4>Emails:</h4>
-    <p><%= link_to 'New Email', new_contact_email_path(@contact), class:"btn btn-primary" %></p>
+    <p id="new-email"><%= link_to 'New Email', new_contact_email_path(@contact), remote: true, class:"btn btn-primary" %></p>
     <% if @contact.emails.any? %>
       <div class="row">
         <% @contact.emails.each do |email| %>
-          <div class="col-sm-12 col-m-3">
+          <div class="col-sm-12 col-m-3" id="emails">
             <p><%= email.email_address %></p>
             <p><%= email.comment %></p>
             <p><%= link_to 'Edit', edit_contact_email_path(email.contact, email) %> | <%= link_to 'Delete', [email.contact, email],
                     method: :delete,
-                    data: { confirm: 'Are you sure?' } %></p>
+                    data: { confirm: 'Are you sure?', remote: true }, class: "delete" %></p>
           </div>
         <% end %>
       </div>

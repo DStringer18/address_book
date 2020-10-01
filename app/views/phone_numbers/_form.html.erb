@@ -1,4 +1,4 @@
-<%= form_with model: [ contact, phone_number ] do |form| %>
+<%= form_with model: [ contact, phone_number ], local: true do |form| %>
 
   <% if @phone_number.errors.any? %>
     <div id="error_explanation">
