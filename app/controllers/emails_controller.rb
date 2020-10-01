@@ -24,7 +24,7 @@ class EmailsController < ApplicationController
       if @email.save
         format.js
         format.html { redirect_to contact_path(@contact)}
-        format.jeson { render json: @contact, status: :created, location: @contact}
+        format.json { render :show, status: :created, location: @contact}
       else
         format.html { render 'new' }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
