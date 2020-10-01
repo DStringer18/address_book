@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'contacts/index'
   resources :contacts do
     resources :addresses, :phone_numbers, :emails
   end
-  root to: 'welcome#index'
+  root to: 'contacts#index'
 end

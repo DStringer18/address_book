@@ -19,11 +19,17 @@ class EmailsController < ApplicationController
   def create
     @contact = Contact.find(params[:contact_id])
     @email = @contact.emails.create(email_params)
+
+    respond_to do |format|
       if @email.save
-        redirect_to contact_path(@contact)
+        format.js
+        format.html { redirect_to contact_path(@contact)}
+        format.jeson { render json: @contact, status: :created, location: @contact}
       else
-        render 'new'
+        format.html { render 'new' }
+        format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def update
@@ -41,7 +47,11 @@ class EmailsController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @email = @contact.emails.find(params[:id])
     @email.destroy
-    redirect_to contact_path(@contact)
+    respond_to do |format|
+      format.js
+      format.html { redirect_to contact_path(@contact), notice: 'Email was successfully deleted' }
+      format.json { head :no_content }
+    end
   end
 
   private
