@@ -22,7 +22,7 @@ class EmailsController < ApplicationController
 
     respond_to do |format|
       if @email.save
-        format.js
+        #format.js
         format.html { redirect_to contact_path(@contact)}
         format.json { render :show, status: :created, location: @contact}
       else

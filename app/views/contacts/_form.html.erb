@@ -1,14 +1,14 @@
-<%= form_with model: @contact do |form| %>
+<%= form_with model: @contact, local: true do |form| %>
 
   <% if @contact.errors.any? %>
     <h2>Errors:</h2>
-    <div class="errors" id="error_explanation">
+    <div id="error_explanation">
       <h2>
         <%= pluralize(@contact.errors.count, "error") %> prevented this contact from being saved:
       </h2>
       <ul>
         <% @contact.errors.full_messages.each do |msg| %>
-          <li class="error"><%= msg %></li>
+          <li><%= msg %></li>
         <% end %>
       </ul>
     </div>

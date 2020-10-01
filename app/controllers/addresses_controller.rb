@@ -41,7 +41,11 @@ class AddressesController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @address = @contact.addresses.find(params[:id])
     @address.destroy
-    redirect_to contact_path(@contact)
+    respond_to do |format|
+      format.js
+      format.html { redirect_to contact_path(@contact), notice: 'Address was successfully deleted' }
+      format.json { head :no_content }
+    end
   end
 
   private

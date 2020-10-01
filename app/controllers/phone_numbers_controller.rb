@@ -41,7 +41,11 @@ class PhoneNumbersController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @phone_number = @contact.phone_numbers.find(params[:id])
     @phone_number.destroy
-    redirect_to contact_path(@contact)
+    respond_to do |format|
+      format.js
+      format.html { redirect_to contact_path(@contact), notice: 'Phone number was successfully deleted' }
+      format.json { head :no_content }
+    end
   end
 
   private

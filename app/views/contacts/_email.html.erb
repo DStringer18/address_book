@@ -1,9 +1,0 @@
-<% @contact.emails.each do |email| %>
-  <div class="col-sm-12 col-m-3">
-    <p><%= email.email_address %></p>
-    <p><%= email.comment %></p>
-    <p><%= link_to 'Edit', edit_contact_email_path(email.contact, email) %> | <%= link_to 'Delete', [email.contact, email],
-            method: :delete,
-            data: { confirm: 'Are you sure?', remote: true }, class: "delete" %></p>
-  </div>
-<% end %>

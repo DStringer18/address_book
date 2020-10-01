@@ -21,7 +21,7 @@ class EmailsControllerTest < ActionDispatch::IntegrationTest
       post contact_emails_url(@contact), params: { email: { email_address: 'me@test.com' } }
     end
 
-    assert_redirected_to contact_emails_url(@contact)
+    assert_redirected_to contact_url(@contact)
   end
 
   test "should get edit" do
@@ -31,7 +31,7 @@ class EmailsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update email" do
     patch contact_email_url(@contact, @email), params: { email: { email_address: 'you@test.com'  } }
-    assert_redirected_to contact_emails_url(@contact)
+    assert_redirected_to contact_url(@contact)
   end
 
   test "should destroy email" do
@@ -39,6 +39,6 @@ class EmailsControllerTest < ActionDispatch::IntegrationTest
       delete contact_email_url(@contact, @email)
     end
 
-    assert_redirected_to contact_emails_url(@contact)
+    assert_redirected_to contact_url(@contact)
   end
 end

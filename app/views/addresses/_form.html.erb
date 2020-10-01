@@ -1,4 +1,4 @@
-<%= form_with model: [ contact, address ] do |form| %>
+<%= form_with model: [ contact, address ], local: true do |form| %>
 
   <% if @address.errors.any? %>
     <div id="error_explanation">
@@ -43,4 +43,5 @@
   <p>
     <%= form.submit class: "submit btn btn-primary" %>
   </p>
+  
 <% end %>
