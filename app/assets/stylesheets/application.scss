@@ -1,0 +1,144 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+@import "bootstrap/scss/bootstrap";
+@import "main";
+
+:root{
+  --main-dark-blue: rgb(17, 64, 132);
+  --main-blue: rgb(52, 102, 170);
+  --main-light-blue: rgb(130, 183, 220);
+  --main-white: rgb(241, 241, 241);
+  --main-grey: rgb(196, 196, 196);
+  --main-black: rgb(28, 28, 28);
+}
+
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+#title {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  
+  h1 {
+    margin: 0;
+    color: var(--main-black)
+  }
+}
+
+h1 {
+  font-size: 40px;
+  color: var(--main-black);
+}
+
+h4 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 25px;
+  padding: 10px;
+}
+
+.contact {
+  background-color: var(--main-light-blue);
+  margin: 10px;
+  border-radius: 15px;
+  font-size: 25px;
+}
+
+.contact-name {
+  background-color: var(--main-blue);
+  border-radius: 15px;
+  margin-top: 70px;
+  padding: 20px;
+}
+
+.contact-details {
+  font-size: 20px;
+  padding: 20px;
+}
+
+.emails, .addresses {
+  background-color: var(--main-light-blue);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.phone-numbers {
+  background-color: var(--main-grey);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.link-to-new {
+  padding: 10px;
+  margin: 10px;
+}
+
+.row {
+  width: 100%
+}
+
+.col{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+td {
+  color: var(--main-black);;
+  padding: 10px;
+}
+
+.footer-links {
+  font-size: 25px;
+  margin: 10px;
+  width: 100%;
+}
+
+.submit, .form-control {
+  font-size: 25px;
+}
+
+.btn {
+  font-size: 20px;
+}
+
+.contact-btn {
+  color: var(--main-black)
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 16px;
+  }
+  .btn {
+    font-size: 12px;
+  }
+}

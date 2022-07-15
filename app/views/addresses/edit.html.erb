@@ -1,0 +1,5 @@
+<h1>Edit Address</h1>
+
+<%= render partial: 'form', locals: {contact: @contact, address: @address} %>
+
+<%= link_to 'Back', contact_addresses_path(@contact), class:'footer-links' %>
