@@ -15,5 +15,8 @@
   "devDependencies": {
     "webpack-dev-server": "^3.11.0",
     "node-sass": "^7.0.1"
+  },
+  "engines": {
+    "yarn": "1.x"
   }
 }
