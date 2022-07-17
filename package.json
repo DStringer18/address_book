@@ -17,6 +17,6 @@
     "node-sass": "^7.0.1"
   },
   "engines": {
-    "yarn": "1.x"
+    "node": "18.x"
   }
 }
