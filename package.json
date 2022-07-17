@@ -17,6 +17,7 @@
     "node-sass": "^7.0.1"
   },
   "engines": {
-    "node": "18.x"
+    "node": "18.x",
+    "npm": "8.x"
   }
 }
