@@ -12,16 +12,31 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-dark fixed-top row mx-auto">
+    <ul class="navbar-nav mr-auto col-sm-10">
+      <li class="nav-item">
+        <%= link_to 'All Contacts', contacts_path %>
+      </li>
+    </ul>
+    <% if current_user %>
+      <ul class="navbar-nav mr-auto float-right col-sm-2">
+        <li class="nav-item">
+          <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+        </li>
+      </ul>
+    <% end %>
+  </nav>
   
-    <div class="container">
+    <div class="container mt-5">
     <% if notice %>
-      <%= notice %>
+        <p class="notice"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <%= alert %>
+        <p class="alert"><%= alert %></p>
     <% end %>
-    
-    <%= yield %>
+      <div class="container-fluid my-3">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

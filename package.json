@@ -18,8 +18,5 @@
   "engines": {
     "npm": "8.x",
     "yarn": "1.x"
-  },
-  "scripts": {
-    "start": ""
   }
 }
