@@ -13,18 +13,11 @@
 
   <body>
   <nav class="navbar navbar-dark fixed-top row mx-auto">
-    <% if current_user %>
       <ul class="navbar-nav mr-auto col-sm-10">
         <li class="nav-item">
           <%= link_to 'All Contacts', contacts_path %>
         </li>
       </ul>
-      <ul class="navbar-nav mr-auto float-right col-sm-2">
-        <li class="nav-item">
-          <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
-        </li>
-      </ul>
-    <% end %>
   </nav>
   
     <div class="container mt-5">
