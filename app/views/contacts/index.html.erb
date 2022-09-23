@@ -7,27 +7,27 @@
 <div class="container" id="contacts">
   <table>
     <% @contacts.each do |contact| %>
-      <tr class="row contact" id="contacts">
-        <div class="col-9">
-          <td><%= contact.salutation %></td>
-          <td><%= contact.first_name %></td>
+      <div class="row contact" id="contacts">
+        <div class="col-8">
+          <span><%= contact.salutation %></span>
+          <span><%= contact.first_name %></span>
           <% if contact.middle_name.present? %>
-            <td><%= contact.middle_name %></td>
+            <span><%= contact.middle_name %></span>
           <% end %>
-          <td><%= contact.last_name %></td>
+          <span><%= contact.last_name %></span>
         </div>
-        <div class="col-3">
-          <td class="contact-link">
+        <div class="col-4">
+          <span class="contact-link">
             <%= link_to 'View', contact_path(contact), class: "contact-btn btn btn-outline-primary" %> |
             <%= link_to 'Edit', edit_contact_path(contact), class: "contact-btn btn btn-outline-primary" %> |
             <%= link_to 'Delete', contact_path(contact),
                   method: :delete,
                   data: { confirm: 'Are you sure?', remote: true }, class: "delete contact-btn btn btn-outline-primary" %>
-          </td>
+          </span>
         </div>
-      </tr>
-      
+      </div>
     <% end %>
+    <%= paginate @contacts, window: 2 %>
   </table>
 </div>
 

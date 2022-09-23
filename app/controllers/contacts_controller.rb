@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
 
   def index
-    @contacts = Contact.all
+    @contacts = Contact.order(:last_name).page(params[:page])
   end
 
   def show
